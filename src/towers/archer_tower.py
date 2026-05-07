@@ -8,7 +8,7 @@ from src.projectiles import Arrow
 TILE_SIZE    = 40
 SHOOT_LINGER = 600  # ms
 
-_SPRITE_ROOT = Path(__file__).resolve().parents[2] / "2D_Archer_Spritesheets_1024x1024"
+_SPRITE_ROOT = Path(__file__).resolve().parents[2] / "assets" / "images" / "towers" / "archer"
 
 
 def _load_anim_folder(folder):

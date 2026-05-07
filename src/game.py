@@ -1,6 +1,5 @@
 import pygame
 import sys
-import unicodedata
 import random
 import csv
 import os
@@ -423,10 +422,7 @@ class Game:
             self.player_name += text[:available]
 
     def _is_name_character(self, text):
-        return all(
-            char.isprintable() or unicodedata.category(char).startswith("M")
-            for char in text
-        )
+        return all(c.isascii() and (c.isalnum() or c == " ") for c in text)
 
     def _try_start_campaign(self):
         self.player_name = " ".join(self.player_name.strip().split())

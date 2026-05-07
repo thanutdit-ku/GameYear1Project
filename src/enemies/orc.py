@@ -11,7 +11,7 @@ _FRAME_H  = 32
 _COLS     = 10
 _WALK_ROW = 0
 _BG_COLOR = (103, 82, 56)
-_DISPLAY_SIZE = (40, 40)
+_DISPLAY_SIZE = (48, 48)
 _ANIM_SPEED   = 110   # ms per frame
 
 
@@ -53,4 +53,4 @@ class Orc(Enemy):
         sprite = self._current_frame()
         rect = sprite.get_rect(center=(x, y))
         screen.blit(sprite, rect)
-        self._draw_health_bar(screen, x, rect.top + 4, 32, -14)
+        self._draw_health_bar(screen, x, rect.top + 4, 40, -14)
