@@ -6,8 +6,8 @@ from src.enemies.enemy import Enemy
 _ASSET_DIR  = Path(__file__).resolve().parents[2] / "assets" / "images" / "enemies" / "dark_knight" / "FreeKnight"
 _FRAME_W    = 120
 _FRAME_H    = 80
-_DISPLAY_W  = 72
-_DISPLAY_H  = 48
+_DISPLAY_W  = 144
+_DISPLAY_H  = 96
 _ANIM_SPEED = 100  # ms per frame
 
 
