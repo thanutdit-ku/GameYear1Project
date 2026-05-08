@@ -1624,8 +1624,8 @@ class Game:
         self._draw_graph_menu(menu_rect)
 
         graphs = [
+            ("Summary Table", self._draw_summary_stats_graph),
             ("Leaderboard", self._draw_leaderboard_graph),
-            ("Performance Radar", self._draw_performance_radar_graph),
             ("Gold vs Wave", self._draw_gold_wave_scatter_graph),
             ("Damage Efficiency", self._draw_damage_efficiency_graph),
             ("Survival Curve", self._draw_survival_curve_graph),
@@ -1643,8 +1643,8 @@ class Game:
         self.screen.blit(title, (rect.centerx - title.get_width() // 2, rect.y + 12))
 
         labels = [
-            "1 Leaderboard",
-            "2 Radar",
+            "1 Summary",
+            "2 Leaderboard",
             "3 Gold/Wave",
             "4 Efficiency",
             "5 Survival",
@@ -1690,6 +1690,57 @@ class Game:
             stat["hp"] = sum(stat["hp_values"]) / max(len(stat["hp_values"]), 1)
             stat["efficiency"] = stat["damage"] / max(stat["gold"], 1)
         return list(players.values())
+
+    def _draw_summary_stats_graph(self, rect, rows, title):
+        accent = (80, 200, 200)
+        self._draw_chart_frame(rect, "Summary Table", accent,
+                               "Mean, Median, Std Dev, Min, and Max for each gameplay metric.")
+        features = [
+            ("Enemies Defeated", "enemies_defeated"),
+            ("Damage Dealt",     "damage_dealt"),
+            ("Gold Spent",       "gold_spent"),
+            ("Castle HP",        "castle_hp"),
+            ("Survival Time (s)", "survival_time"),
+        ]
+        headers = ["Feature", "Mean", "Median", "Std Dev", "Min", "Max"]
+        ratios  = [0.30, 0.14, 0.14, 0.14, 0.14, 0.14]
+        col_xs  = []
+        x = rect.x + 14
+        for r in ratios:
+            col_xs.append(x)
+            x += int(rect.width * r)
+
+        font_h = pygame.font.SysFont("verdana", 10, bold=True)
+        font_d = pygame.font.SysFont("verdana", 9)
+        header_y = rect.y + 62
+        row_h = 30
+
+        for ci, h in enumerate(headers):
+            s = font_h.render(h, True, accent)
+            self.screen.blit(s, (col_xs[ci], header_y))
+        pygame.draw.line(self.screen, (55, 68, 98),
+                         (rect.x + 8, header_y + 16), (rect.right - 8, header_y + 16), 1)
+
+        for ri, (display, key) in enumerate(features):
+            vals = [self._to_number(r.get(key)) for r in rows]
+            if not vals:
+                continue
+            n = len(vals)
+            mean_v = sum(vals) / n
+            sv = sorted(vals)
+            median_v = (sv[n // 2] + sv[(n - 1) // 2]) / 2
+            variance = sum((v - mean_v) ** 2 for v in vals) / max(n - 1, 1)
+            std_v = variance ** 0.5
+            cells = [display, f"{mean_v:.1f}", f"{median_v:.1f}",
+                     f"{std_v:.1f}", f"{min(vals):.0f}", f"{max(vals):.0f}"]
+            row_y = header_y + 22 + ri * row_h
+            if ri % 2 == 0:
+                bg = pygame.Rect(rect.x + 8, row_y - 2, rect.width - 16, row_h - 2)
+                pygame.draw.rect(self.screen, (22, 32, 52), bg, border_radius=4)
+            for ci, cell in enumerate(cells):
+                color = (248, 228, 160) if ci == 0 else (200, 210, 230)
+                s = font_d.render(str(cell), True, color)
+                self.screen.blit(s, (col_xs[ci], row_y + 4))
 
     def _draw_leaderboard_graph(self, rect, rows, title):
         players = sorted(self._player_stats(rows), key=lambda p: (p["wave"], p["damage"]), reverse=True)[:6]
