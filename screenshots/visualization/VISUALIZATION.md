@@ -6,8 +6,9 @@ This document explains every component in the **Statistics** screen of **Kingdom
 
 ---
 
-## Overall Statistics 
+## Overall Statistics
 
+![overall](overall_statistic.png)
 The Statistics screen is accessible from the Home screen and displays all recorded session data across every player who has ever played. The left sidebar lists 6 graphs selectable by clicking or pressing keys 1–6. The main panel shows the selected graph along with a mini-table of supporting data. Navigation buttons at the bottom (Prev / Next) cycle through graphs, and the Table button toggles a raw CSV data view. The screen currently shows **190 rows** of data from multiple sessions.
 
 ---
