@@ -196,8 +196,6 @@ The game's difficulty design is intentional. Enemy HP scales by 1.20× per wave 
 
 The diagram shows all major classes with their attributes, methods, and relationships including inheritance (Tower → ArcherTower / MageTower / CannonTower), composition (Game contains Wave, StatsTracker, UIManager, lists of Tower/Enemy/Projectile), and dependency (Tower fires Projectile, Projectile hits Enemy).
 
-📄 [UML Class Diagram (PDF)](UML.pdf) *(attach PDF here)*
-
 ---
 
 ## 4. Object-Oriented Programming Implementation
