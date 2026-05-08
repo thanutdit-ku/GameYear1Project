@@ -4,7 +4,7 @@ import pygame
 from src.enemies.enemy import Enemy
 
 
-class Goblin(Enemy):
+class Wolf(Enemy):
     _sprite = None
     _sprite_size = (40, 40)
 

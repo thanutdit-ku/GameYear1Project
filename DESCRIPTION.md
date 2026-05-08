@@ -51,7 +51,7 @@ The Home screen lets the player enter a Commander name and choose from 6 maps, e
 
 ![Gameplay 1](screenshots/gameplay/gameplay1.png)
 
-The map is loaded and the path is visible. The player starts with 200 gold and has not yet placed any towers. The HUD shows the upcoming enemies (Slime×3, Goblin×2) and the Start Wave button is ready.
+The map is loaded and the path is visible. The player starts with 200 gold and has not yet placed any towers. The HUD shows the upcoming enemies (Slime×3, Wolf×2) and the Start Wave button is ready.
 
 ---
 
@@ -214,9 +214,9 @@ The diagram shows all major classes with their attributes, methods, and relation
 | **Enemy** | `src/enemies/enemy.py` | Base class for all enemies. Waypoint-based pathfinding, HP/speed scaling per wave, health bar rendering, directional sprite animation |
 | **Slime** | `src/enemies/slime.py` | Enemy that splits into two MiniSlime on death |
 | **MiniSlime** | `src/enemies/slime.py` | Spawned by Slime death, awards no gold |
-| **Goblin** | `src/enemies/goblin.py` | Standard enemy, fast and low HP |
+| **Wolf** | `src/enemies/wolf.py` | Standard enemy, fast and low HP |
 | **Bat** | `src/enemies/bat.py` | Flying unit with directional sprite animation |
-| **SwordShield** | `src/enemies/swordshield.py` | Heavier Goblin variant with more HP |
+| **SwordShield** | `src/enemies/swordshield.py` | Heavier Wolf variant with more HP |
 | **Orc** | `src/enemies/orc.py` | Tank unit with high HP and slow speed |
 | **Spider** | `src/enemies/spider.py` | Fast mid-game enemy |
 | **DarkKnight** | `src/enemies/dark_knight.py` | Elite enemy with 300 HP, introduced at Wave 9 |
@@ -275,4 +275,33 @@ The dataset contains **7 columns** per row:
 | [Python](https://www.python.org/) | 3.10+ | Language | PSF |
 
 ### Art and Sprites
+
+All sprites are used under their respective free/open licenses. Frame counts and sheet dimensions are as loaded in-game.
+
+#### Tower Sprites
+
+| Tower | File(s) | Format | Details | Source |
+|---|---|---|---|---|
+| **Archer Tower** | `assets/images/towers/archer/Idle/` | 10 individual PNGs (1024×1024) | Idle animation — 10 frames | [2D Animated Archer Spritesheet — OpenGameArt](https://opengameart.org/content/2d-animated-archer-spritesheet) |
+| **Archer Tower** | `assets/images/towers/archer/Shoot_Stand/` | 22 individual PNGs (1024×1024) | Shoot animation — 22 frames | [2D Animated Archer Spritesheet — OpenGameArt](https://opengameart.org/content/2d-animated-archer-spritesheet) |
+| **Archer Tower** | `assets/images/towers/archer/Jump/` | 22 individual PNGs (1024×1024) | Jump animation — 22 frames | [2D Animated Archer Spritesheet — OpenGameArt](https://opengameart.org/content/2d-animated-archer-spritesheet) |
+| **Archer Tower** | `assets/images/towers/archer/Run_Idle/` | 22 individual PNGs (1024×1024) | Run-idle animation — 22 frames | [2D Animated Archer Spritesheet — OpenGameArt](https://opengameart.org/content/2d-animated-archer-spritesheet) |
+| **Mage Tower** | `assets/images/enemies/dark_knight/mage/AttackMighty1–6.png` | 6 individual PNGs (32×32, scaled 2×) | Cast animation — 6 frames | [Pixel Art Assets 5 — greenpixels (itch.io)](https://greenpixels.itch.io/pixel-art-assets-5) |
+| **Cannon Tower** | `assets/images/enemies/dark_knight/Cannon/cannon-sheet.png` | Sprite sheet 512×64 | 8 frames × 64×64 px in a single row | [Cannon Gun Sprite Animated — OpenGameArt](https://opengameart.org/content/cannon-gun-sprite-animated) |
+
+#### Enemy Sprites
+
+| Enemy | File(s) | Format | Details | Source |
+|---|---|---|---|---|
+| **Slime / MiniSlime** | `assets/images/enemies/slime/slime-move-0–3.png` | 4 individual PNGs (32×25) | Walk animation — 4 frames, MiniSlime uses same frames scaled down | [Pixel Art Animated Slime — rvros (itch.io)](https://rvros.itch.io/pixel-art-animated-slime) |
+| **Wolf** | `assets/images/enemies/goblin/howl.png` | Single PNG (64×64) | Static sprite, no animation | [LPC Wolf Animation — OpenGameArt](https://opengameart.org/content/lpc-wolf-animation) |
+| **Bat** | `assets/images/enemies/goblin/bat.png` | Sprite sheet (128×128) | Directional fly animation | [Bat Sprite — OpenGameArt](https://opengameart.org/content/bat-sprite) |
+| **SwordShield** | `assets/images/enemies/swordshield/walk.png` | Sprite sheet 336×42 | 8 frames × 42×42 px — walk cycle | [Knight Sprite — lionheart963 (itch.io)](https://lionheart963.itch.io/knight-sprite) |
+| **SwordShield** | `assets/images/enemies/swordshield/idle.png` | Sprite sheet 168×42 | 4 frames × 42×42 px — idle cycle | [Knight Sprite — lionheart963 (itch.io)](https://lionheart963.itch.io/knight-sprite) |
+| **Orc** | `assets/images/enemies/orc/orc_walk.png` | Sprite sheet 320×320 | 10 columns × 32×32 px per frame — walk cycle, displayed at 48×48 | [Animated Orcs — OpenGameArt](https://opengameart.org/content/animated-orcs) |
+| **Spider** | `assets/images/enemies/spider/walk.png` | Sprite sheet 640×320 | 4 rows (up/left/down/right) × 10 cols × 64×64 px — directional walk | [LPC Spider — OpenGameArt](https://opengameart.org/content/lpc-spider) |
+| **DarkKnight** | `assets/images/enemies/dark_knight/FreeKnight/_Idle.png` | Sprite sheet 1200×80 | 10 frames × 120×80 px — idle animation | [Fantasy Knight — aamatniekss (itch.io)](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character) |
+| **DarkKnight** | `assets/images/enemies/dark_knight/FreeKnight/_Run.png` | Sprite sheet 1200×80 | 10 frames × 120×80 px — run animation | [Fantasy Knight — aamatniekss (itch.io)](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character) |
+| **DarkKnight** | `assets/images/enemies/dark_knight/FreeKnight/_Death.png` | Sprite sheet 1200×80 | 10 frames × 120×80 px — death animation | [Fantasy Knight — aamatniekss (itch.io)](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character) |
+| **Dragon Boss** | `assets/images/enemies/boss/dragon.png` | Sprite sheet 432×512 | 3 cols × 4 rows × 144×128 px — directional walk (N/E/S/W) | [Flying Dragon Rework — OpenGameArt](https://opengameart.org/content/flying-dragon-rework) |
 

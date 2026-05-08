@@ -1,5 +1,5 @@
 import random
-from src.enemies.goblin import Goblin
+from src.enemies.wolf import Wolf
 from src.enemies.bat import Bat
 from src.enemies.swordshield import SwordShield
 from src.enemies.orc import Orc
@@ -50,24 +50,24 @@ class Wave:
     def _pick_enemy_type(self, index=0):
         """Return a new enemy instance based on wave progression."""
         if self.wave_number == 1:
-            # First wave: alternate slime and goblin for a gentle intro.
-            choices = [Slime, Goblin]
+            # First wave: alternate slime and wolf for a gentle intro.
+            choices = [Slime, Wolf]
             return choices[index % 2](self.waypoints)
         if self.wave_number <= 3:
             # Early waves: slime still present alongside bats.
-            choices = [Slime, Goblin, SwordShield, Bat]
+            choices = [Slime, Wolf, SwordShield, Bat]
             weights = [2, 3, 2, 2]
         elif self.wave_number <= 5:
             # Mid waves: orcs join the mix.
-            choices = [Goblin, SwordShield, Bat, Orc]
+            choices = [Wolf, SwordShield, Bat, Orc]
             weights = [3, 2, 2, 1]
         elif self.wave_number <= 8:
             # After wave 5: spiders appear.
-            choices = [Goblin, SwordShield, Bat, Orc, Spider]
+            choices = [Wolf, SwordShield, Bat, Orc, Spider]
             weights = [2, 2, 2, 2, 2]
         else:
             # Late waves: full enemy roster including dark knights.
-            choices = [Goblin, SwordShield, Bat, Orc, Spider, DarkKnight]
+            choices = [Wolf, SwordShield, Bat, Orc, Spider, DarkKnight]
             weights = [2, 2, 1, 2, 2, 1]
 
         enemy_class = random.choices(choices, weights=weights)[0]

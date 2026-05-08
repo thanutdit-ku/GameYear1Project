@@ -749,7 +749,9 @@ class Game:
         self.paused = False
         self.sell_mode = False
         self.current_wave += 1
-        self.wave = self._queued_wave or Wave(self.current_wave, self.waypoints)
+        if self._queued_wave is None:
+            self._queued_wave = Wave(self.current_wave, self.waypoints)
+        self.wave = self._queued_wave
         self._queued_wave = None
         self.projectiles = []
         self.state = self.STATE_WAVE
@@ -2426,7 +2428,7 @@ class Game:
     # Enemy display config for wave preview
     _ENEMY_PREVIEW = {
         "Slime":       ("Slime",   (100, 220, 100)),
-        "Goblin":      ("Goblin",  (80,  210,  80)),
+        "Wolf":        ("Wolf",    (80,  210,  80)),
         "SwordShield": ("Shield",  (90,  150, 230)),
         "Bat":         ("Bat",     (180, 140, 230)),
         "Orc":         ("Orc",     (210, 130,  60)),
@@ -2622,6 +2624,7 @@ class Game:
         self.stats_tracker.set_player_name(name)
         self.state = self.STATE_PREP
         self.home_name_input_active = False
+        self._queue_next_wave()
 
     def _draw_end_button(self, rect, text, top_color, bottom_color, mouse_pos):
         if rect.collidepoint(mouse_pos):
