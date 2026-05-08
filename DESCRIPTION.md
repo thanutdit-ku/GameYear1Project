@@ -131,7 +131,7 @@ Surviving all 10 waves triggers the Victory screen. The summary shows Waves Surv
 
 **Statistics Overview — Summary Table**
 
-![Statistics Overall](screenshots/visualization/overall_statistics.png)
+![Statistics Overall](screenshots/visualization/g1_summary_table.png)
 
 The Statistics screen shows data from all recorded sessions. The left sidebar lists 6 graphs; the main panel displays the selected visualization with a supporting data table.
 
