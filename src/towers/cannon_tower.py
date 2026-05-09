@@ -44,8 +44,6 @@ class CannonTower(Tower):
         screen.blit(frame, (x - FRAME_SIZE // 2, y - FRAME_SIZE // 2))
 
         font = pygame.font.SysFont("verdana", 12, bold=True)
-        label = font.render(f"Lv{self.level}", True, (255, 255, 255))
-        screen.blit(label, (x - label.get_width() // 2, y + FRAME_SIZE // 2 + 2))
 
         mode_surf = font.render(TARGETING_LABELS[self.targeting_mode], True, (255, 220, 80))
         screen.blit(mode_surf, (x - mode_surf.get_width() // 2, y - FRAME_SIZE // 2 - mode_surf.get_height() - 1))

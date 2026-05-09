@@ -66,5 +66,4 @@ class MageTower(Tower):
         pygame.draw.ellipse(screen, (19, 21, 35), shadow_rect)
         screen.blit(sprite, sprite_rect)
 
-        label = self._get_label_font().render(f"Lv{self.level}", True, (255, 255, 255))
-        screen.blit(label, (x - label.get_width() // 2, y + 20))
+
