@@ -26,7 +26,7 @@ Kingdom's Last Stand is a single-player wave-based tower defense game. The playe
 Clone this project:
 
 ```sh
-git clone https://github.com/<username>/GameYear1Project.git
+git clone https://github.com/thanutdit-ku/GameYear1Project.git
 cd GameYear1Project
 ```
 
