@@ -62,6 +62,6 @@ class DarkKnight(Enemy):
             idx   = (now // _ANIM_SPEED) % len(self._run_frames)
             frame = self._run_frames[idx]
 
-        rect = frame.get_rect(center=(x, y))
+        rect = frame.get_rect(midbottom=(x, y + 20))
         screen.blit(frame, rect)
         self._draw_health_bar(screen, x, rect.top + 4, 60, -16, color=(225, 130, 130))
