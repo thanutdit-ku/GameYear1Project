@@ -127,7 +127,6 @@ Tests also run automatically on every push via GitHub Actions.
   - `Archer` — fast attacks with 20% critical hit chance
   - `Mage` — slows enemies by 50% for 2 seconds on hit
   - `Cannon` — area splash damage in a 50px radius
-- **Tower upgrades** — Level 2 gives 1.5× damage and 1.2× range
 - **4 targeting modes** per tower — First, Last, Strongest, Closest (right-click to cycle)
 - **9 enemy types** — Slime (splits on death), Goblin, Bat, SwordShield, Orc, Spider, DarkKnight, Boss Dragon
 - **10 waves** with HP scaling (×1.20 per wave) and speed scaling (×1.10 per wave)

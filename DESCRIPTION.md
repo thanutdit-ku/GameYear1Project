@@ -30,7 +30,6 @@ Most tower defense games give players no insight into their own performance beyo
 - **3 tower types** with distinct abilities: Archer (critical hits), Mage (enemy slow), Cannon (area splash damage)
 - **10 waves** of enemies with 9 enemy types ranging from Slime to Dragon Boss, each scaling in HP and speed per wave
 - **5 playable maps** with unique waypoint paths
-- **Tower upgrade system** — each tower can be leveled up for 1.5× damage and 1.2× range
 - **4 targeting modes** per tower: First, Last, Strongest, Closest
 - **Automatic CSV data recording** — every wave saved to `data/game_stats.csv`
 - **Interactive Statistics screen** with 6 graphs: Summary Table, Leaderboard, Gold/Wave Scatter, Damage Efficiency, Survival Curve, Wave Heatmap

@@ -96,8 +96,6 @@ class ArcherTower(Tower):
             pygame.draw.line(screen, (234, 225, 201), (x + 2, y - 4), (x + 13, y - 10), 2)
 
         font = pygame.font.SysFont("verdana", 12, bold=True)
-        label = font.render(f"Lv{self.level}", True, (255, 255, 255))
-        screen.blit(label, (x - label.get_width() // 2, y + TILE_SIZE // 2 + 2))
 
         mode_surf = font.render(TARGETING_LABELS[self.targeting_mode], True, (255, 220, 80))
         screen.blit(mode_surf, (x - mode_surf.get_width() // 2, y - TILE_SIZE // 2 - mode_surf.get_height() - 1))
