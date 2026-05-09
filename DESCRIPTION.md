@@ -259,7 +259,54 @@ The dataset contains **7 columns** per row:
 
 ## 6. Changed Proposed Features
 
-*(Fill in here if any planned features were changed or cut)*
+The table below compares what was described in the original project proposal (v1.0, 11 March 2026) with what was actually built and delivered.
+
+### Enemy Types
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| 3 enemy types: Goblin, Orc, Dark Knight | 9 enemy types: Slime, MiniSlime, Wolf, Bat, SwordShield, Orc, Spider, DarkKnight, BossEnemy (Dragon) | **Expanded** — enemy roster grew from 3 to 9 to increase variety and difficulty progression across 10 waves |
+| No special death mechanics | Slime splits into two MiniSlime on death | **Added** — gives the Slime a unique mechanic that cannot be found in any of the other enemy types |
+| No boss enemy mentioned | Dragon BossEnemy (750 HP) spawns at Wave 5 and Wave 10 | **Added** — boss waves provide difficulty spikes and a clear climax for both the mid-game and the final wave |
+
+### Tower Abilities
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| Archer Tower: fast attack, long range | Archer Tower: same stats + 20% critical hit chance dealing 2× damage | **Expanded** — critical hit mechanic makes the Archer feel distinct from a plain fast-attacker |
+| Mage Tower: high damage, slow attack | Mage Tower: same stats + projectile applies 50% slow for 2 seconds on hit | **Expanded** — slow debuff adds a crowd-control role that the proposal did not describe |
+| Cannon Tower: splash damage | Cannon Tower: same splash mechanic, implemented via separate `Cannonball` projectile class | **Same intent, refined implementation** |
+
+### Targeting System
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| Towers target the enemy furthest along the path (highest path index) | 4 selectable targeting modes per tower: First, Last, Strongest, Closest | **Expanded** — right-clicking cycles between modes, giving the player meaningful tactical choices beyond the single default |
+
+### Map
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| Single fixed map (one predefined path) | 5 selectable maps, each with a unique waypoint path | **Expanded** — multiple maps increase replayability and allow the player to experiment with different tower placements |
+
+### Projectile System
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| Towers attack enemies directly (no projectile object mentioned) | Separate `Projectile` base class with `Arrow`, `MagicOrb`, and `Cannonball` subclasses | **Added** — a proper projectile hierarchy was introduced to cleanly separate attack behavior and support ability-on-hit effects (slow, splash) |
+
+### Statistical Data — CSV Identifier
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| `session_id` (auto-generated unique ID per run) | `player_name` (entered by player at the Home screen) | **Changed** — using a name makes the leaderboard and per-player comparisons readable and meaningful; a raw session ID would be opaque in the statistics screen |
+
+### Data Visualizations
+
+| Proposed | Implemented | Change |
+|---|---|---|
+| 3 graph types: Histogram (enemies defeated), Line graph (castle HP), Bar graph (gold spent) | 6 visualizations: Summary Table, Leaderboard, Gold/Wave Scatter, Damage Efficiency, Survival Curve, Wave Heatmap | **Expanded** — the three basic plots were replaced with charts that answer cross-session, multi-player questions (who spent gold most efficiently? which wave kills most players?) |
+| Separate exported report file | All charts rendered live in-game via matplotlib Agg backend | **Changed** — keeping analysis inside the game (as advised in proposal feedback) avoids the complexity of a separate analysis file and lets players explore results immediately after each session |
 
 ---
 
