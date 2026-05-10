@@ -160,8 +160,7 @@ The Statistics screen shows data from all recorded sessions. The left sidebar li
 
 ### Video Presentation
 
-🎬 [YouTube Presentation](https://www.youtube.com/) *(add link here)*
-
+🎬 [YouTube Presentation](https://www.youtube.com/) https://youtu.be/SyDrl-hwpBQ
 The video covers:
 1. Full demonstration of the game and all statistics features
 2. Explanation of the class design and OOP structure
